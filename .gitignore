@@ -1,0 +1,6 @@
+contracts/node_modules
+contracts/.env
+contracts/truffle-config.js
+contracts/truffle.js
+front-end/node_modules
+front-end/.env

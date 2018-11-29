@@ -1,0 +1,23 @@
+{
+  "name": "ticketSystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "dotenv": "^6.0.0",
+    "truffle-hdwallet-provider": "0.0.6",
+    "web3": "^1.0.0-beta.36",
+    "zeppelin-solidity": "1.12.0"
+  }
+}

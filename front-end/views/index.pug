@@ -1,0 +1,121 @@
+extends layout
+block content
+    header.tf-header
+      nav.navbar.py-5.navbar-dark
+        .container
+          h1
+            a.navbar-brand(href='#') TicketsToken
+          #navbar
+            ul.nav.pull-right
+              li.nav-item
+                a.nav-link(href='#') Login
+              li.nav-item
+                a.nav-link(href='#tickets') Operaciones
+              li.nav-item
+                a.nav-link(href='#tf-carousel') Nosotros
+              li.nav-item
+                a.nav-link(href='#contact') Contáctanos
+      .container
+        .row
+          .col-md-7.col-sm-12
+            h2
+              | Asegura tus boletos
+              br
+              |  con Blockchain
+        .row
+          .col-md-7.col-sm-12
+            p.mt-4
+              | Usamos blockchain para crear un sistema de venta de boletos seguro y transparente
+            p.mt-5
+              strong.text-uppercase Prueba de concepto
+              span  - Se han vendido #{totalSupply} boletos para nuestro evento de prueba
+              br
+              a(href='https://ropsten.etherscan.io/token/0x68dbc3e199954484f1ae38bf3ec90ffac14a8104' target='_blank') Ver en etherscan 
+    .page-content
+      div
+        .tf-work-section
+            #tickets.container
+                h2.h3 Comprar boletos
+            .container
+                .row.no-gutters
+                    .col-md-3.col-sm-12.tf-hh-col
+                        select.mt-1.form-control(type='select' id='ticketType' name='ticketType')
+                            -   for (var i = 0; i < maxTokenTypes; i++)
+                                option(value=i) #{i}
+                        label(for='ticketType') Selecciona tu localidad
+                    .col-md-3.offset-md-1.col-sm-12
+                        select.mt-1.form-control(type='select' id='ticketQuantity' name='ticketQuantity')
+                            -   for (var i = 1; i <= maxPerSale; i++)
+                                option(value=i) #{i}
+                        label(for='ticketQuantity') ¿Cuántas entradas quieres comprar?
+                    .col-md-3.offset-md-1.col-sm-12
+                        a.tf-header-heading-btn.a.btn.btn-primary.btn-block.mt-1(href='#myTokens' onclick='saleToken()') Procesar compra   
+            .container
+                h2.h3 Ver mis boletos
+            .container
+                .row.no-gutters
+                    .col-md-7.col-sm-12.tf-hh-col#listado
+                    .col-md-3.offset-md-1.col-sm-12
+                        a.tf-header-heading-btn.a.btn.btn-primary.btn-block.mt-1(href='#myTokens' onclick='myTokens()') Ver mis boletos                        
+        .tf-quotes-section
+          #tf-carousel.carousel.slide.mt-5(data-ride='carousel')
+            ol.carousel-indicators
+              li.active(data-target='#tf-carousel', data-slide-to='0')
+              li(data-target='#tf-carousel', data-slide-to='1')
+            .carousel-inner
+              .carousel-item.active(style="background-image: url('images/5-start-simple-slider.jpg');")
+                .carousel-caption
+                  p.slider-text-2
+                    | ¿Cuál es nuestra propuesta?
+                  p.slider-text-1
+                    | Ofrecer un sistema para la venta de boletos basado en blockchain,
+                    br
+                    | como una forma eficiente de conseguir seguridad y transparencia.
+              .carousel-item(style="background-image: url('images/7-start-simple-slider.jpg');")
+                .carousel-caption
+                  p.slider-text-2
+                    | ¿Por qué blockchain?
+                  p.slider-text-1
+                    | - Porque proporciona un registro transparente y permanente, que permite combatir la falsificación.
+                    br
+                    | - Porque permite construir una interfaz segura de forma eficiente.
+                    br
+                    | - Porque creemos en la web 3.0 :)
+            a.carousel-control-prev(href='#tf-carousel', role='button', data-slide='prev')
+              span.carousel-control-prev-icon(aria-hidden='true')
+              span.sr-only Previous
+            a.carousel-control-next(href='#tf-carousel', role='button', data-slide='next')
+              span.carousel-control-next-icon(aria-hidden='true')
+              span.sr-only Next
+        .tf-contact-section
+          #contact.container
+            h2.h4 Comunícate con nosotros
+          .container
+            .row
+              .col-md-4.col-sm-12
+                h3.h5 Contáctanos
+                form(action='https://formspree.io/youremail@example.com', method='POST')
+                  .row.no-gutters
+                    .col-lg-6.col-md-12.col-sm-12.tf-contact-col
+                      input.bg-light.form-control(type='text', name='name', placeholder='*Tu nombre', required='required')
+                    .col-lg-6.col-md-12.col-sm-12.pb-2
+                      input.bg-light.form-control(type='email', name='_replyto', placeholder='*Tu email', required='required')
+                  .row.pb-2.no-gutters
+                    .col-md-12.col-sm-12
+                      textarea.bg-light.mb-2.form-control(name='message', placeholder='*Tu mensaje', rows='3', required='required')
+                  button.btn.btn-primary(type='submit') Enviar
+              .col-md-8.col-sm-12.float-right.text-right
+
+                h3.h5 Teléfono
+                p +521 5583618217
+                h3.h5 Email
+                p ochoacabriles@gmail.com
+    footer.bg-dark.py-4.mt-5.tf-footer
+      .container.text-light
+        .row
+          .col-md-6.col-sm-12 © blockchain1o1. Derechos reservados.
+          .col-md-6.col-sm-12.text-right.tf-design
+            | Design - 
+            a(href='https://templateflip.com', target='_blank') Templateflip
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
